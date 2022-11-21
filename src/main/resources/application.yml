@@ -1,0 +1,36 @@
+spring:
+  profiles:
+    active: live
+  session:
+    store-type: redis
+  redis:
+    host: redis
+    port: 6379
+
+  thymeleaf:
+    prefix: classpath:templates/
+    suffix: .html
+    check-template-location: true
+    cache: false
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysql:3306/testdb?userSSL=false
+    username: mysqluser
+    password: mysqluserpasswd
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    generate-ddl: true
+    show-sql: true
+
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql: trace  # query의 ?에 어떤 값이 들어가는지 추적할 수 있는 설정입니다. TRACE Log에 값을 보여줍니다.
+
